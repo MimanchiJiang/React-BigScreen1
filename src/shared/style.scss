@@ -36,4 +36,13 @@ body {
 
 #root {
   margin: 0 auto;
+  display: flex;
+  background-color: lightgreen;
+  flex-direction: column;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
