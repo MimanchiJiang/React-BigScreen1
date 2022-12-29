@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/echarts": "5.0.2",
     "echarts": "5.0.2",
     "history": "4.9.0",
     "react": "17.0.2",
