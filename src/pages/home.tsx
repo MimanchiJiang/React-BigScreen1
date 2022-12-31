@@ -21,6 +21,7 @@ export const Home = () => {
         <section className='bordered section4'></section>
         <section className='bordered section5'></section>
       </main>
+      <footer>&copy;MiMachi-Jiang-React可视化大屏项目2022-2023</footer>
     </div>
   );
 };
