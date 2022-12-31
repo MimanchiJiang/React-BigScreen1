@@ -11,10 +11,10 @@ export const Chart1 = () => {
         var option = {
             ...baseEchartOptions,
             grid: {
-                x: px(20),
+                x: px(40),
                 y: px(40),
                 x2: px(40),
-                y2: px(10),
+                y2: px(40),
             },
             xAxis: {
                 data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '广东新区', '新疆新区', '深圳新区', '陕西新区'],
