@@ -1,18 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import * as echarts from 'echarts'
-const px = (n) => n / 2420 * (window as any).pageWidth
+import { px } from '../shared/px'
+import { baseEchartOptions } from "../shared/baseChart";
+import { createEchartsOptions } from '../shared/create-echarts-options';
 
 export const Chart1 = () => {
     const divRef = useRef(null)
     useEffect(() => {
         var myChart = echarts.init(divRef.current);
         var option = {
-            textStyle: {
-                fontSize: px(12),
-                color: '#79839E'
+            ...baseEchartOptions,
+            grid: {
+                x: px(20),
+                y: px(40),
+                x2: px(40),
+                y2: px(10),
             },
-            title: { show: false },
-            legend: { show: false },
             xAxis: {
                 data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '广东新区', '新疆新区', '深圳新区', '陕西新区'],
                 axisLine: {
@@ -47,18 +50,11 @@ export const Chart1 = () => {
                     show: true,
                     lineStyle: {
                         color: '#083B70',
-                        width: 1, //这里是为了突出显示加上的  
                     }
                 },
 
             },
-            grid: {
-                x: px(40),
-                y: px(40),
-                x2: px(40),
-                y2: px(40),
-                containLabel: true
-            },
+
             series: [
                 {
                     name: '销量',
@@ -69,7 +65,7 @@ export const Chart1 = () => {
         };
 
         // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+        myChart.setOption(createEchartsOptions(option));
     }, [])
     return (
         <div className='bordered 管辖统计'>
