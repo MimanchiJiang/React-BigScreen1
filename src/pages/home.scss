@@ -51,6 +51,7 @@
 
             &::before {
                 content: '';
+                pointer-events: none;
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -96,10 +97,28 @@
 
         >.section4 {
             grid-area: box4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         >.section5 {
             grid-area: box5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            >.row1 {
+                height: px(317);
+            }
+
+            >.row2 {
+                height: px(317);
+            }
+
+            >.row3 {
+                height: px(455);
+            }
         }
 
         .管辖统计,
@@ -107,7 +126,11 @@
         .发案趋势,
         .案发时段,
         .战果,
-        .籍贯 {
+        .籍贯,
+        .年龄段,
+        .案发类型,
+        .案发街道,
+        .作案手段 {
             height: px(315);
             display: flex;
             flex-direction: column;
@@ -124,6 +147,12 @@
                 text-shadow: 0 0 px(3) white;
             }
 
+            .charts {
+                width: 100%;
+                flex: 1;
+                display: flex;
+            }
+
             .chart {
                 flex: 1;
                 width: 100%;
@@ -133,6 +162,92 @@
         .发案趋势,
         .案发时段 {
             height: px(363);
+        }
+
+        .年龄段 {
+            display: flex;
+            flex-direction: column;
+            height: px(363);
+
+            >.charts {
+
+                padding: px(30);
+            }
+
+            &-图1,
+            &-图2,
+            &-图3 {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            &-图1,
+            &-图2 {
+                .legend {
+                    height: px(40);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    padding-right: px(10);
+
+                    >span {
+                        display: inline-block;
+                        width: px(16);
+                        height: px(10);
+                        border-radius: px(2);
+                        margin: 0 px(10);
+                    }
+
+                    .male {
+                        background: #33a4fa;
+                    }
+
+                    .female {
+                        background: #8d70f8;
+                    }
+                }
+
+                .chart {
+                    position: relative;
+                    display: flex;
+
+                    >.main {
+                        flex: 1;
+                    }
+
+                    >.text {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: #33a4fa;
+                        font-size: px(40);
+                        text-shadow: 0 0 px(20) #33a4fa;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            &-图2 {
+                width: px(290);
+                flex-shrink: 0;
+
+                .legend {
+                    justify-content: flex-start;
+                }
+            }
+
+            &-图3 {
+                border: 1px solid #08397d;
+
+                h3 {
+                    font-size: px(20);
+                    color: #7ab6db;
+                    margin-top: px(6);
+                }
+            }
         }
 
         .籍贯 {
@@ -178,12 +293,15 @@
             }
         }
 
-        .战果 {
+        .战果,
+        .作案手段 {
+            padding: 0 px(24);
+
             >table {
-                margin-top: px(38);
                 border-collapse: collapse;
-                margin-left: px(40);
-                margin-right: px(40);
+                width: 100%;
+                table-layout: fixed;
+                margin-top: px(25);
 
                 th,
                 td {
@@ -204,6 +322,16 @@
                         background: #1c2456;
                     }
 
+                }
+            }
+        }
+
+        .作案手段 {
+            >table {
+                tbody {
+                    td {
+                        height: px(26);
+                    }
                 }
             }
         }
